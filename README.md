@@ -1,4 +1,4 @@
-# 📝 👨‍💻 ▶️ Just Copy-Paste-Execute Scripts to do things fast
+# 📝 👨‍💻 ▶️ copy-paste-execute in shell
 
 ## Install Docker on Ubuntu (run as `root`)
 ```bash
