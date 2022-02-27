@@ -18,3 +18,10 @@ docker run hello-world && \
 usermod -aG docker postgres && \
 usermod -aG docker vagrant
 ```
+## Run `postgres_exporter` on Postgres host with Docker
+```bash
+docker run \
+  --net=host \
+  -e DATA_SOURCE_NAME="postgresql://postgres:postgres@localhost:5432/postgres?sslmode=disable" \
+  quay.io/prometheuscommunity/postgres-exporter
+```
