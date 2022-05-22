@@ -25,6 +25,21 @@ docker run \
   -e DATA_SOURCE_NAME="postgresql://postgres:postgres@localhost:5432/postgres?sslmode=disable" \
   quay.io/prometheuscommunity/postgres-exporter
 ```
+
+## Install and Enable any IP connections to `postgresql` on Ubuntu (PostgreSQL 12 as example)
+1. `sudo apt-get update && sudo apt-get install -y postgresql-12`
+2. Listen all connection:
+    1. `sudo su`
+    2. `nano /etc/postgresql/12/main/postgresql.conf`
+    3. Set: `listen_addresses = '*'`
+3. Enable connections from any host:
+    1. `sudo su`
+    2. `nano /etc/postgresql/12/main/pg_hba.conf`
+    3. Add one of the following:
+        1. `host    all             all             0.0.0.0/0               md5` - to auth by password
+        2. `host    all             all             0.0.0.0/0               ident` - to auth by os user password
+4. `sudo systemctl restart postgresql`
+
 ## Install Windows11 on Intel based Macs
 Source is here: https://www.youtube.com/watch?v=ISlalQsrWfk&t=358s
 
