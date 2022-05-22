@@ -18,15 +18,9 @@ docker run hello-world && \
 usermod -aG docker postgres && \
 usermod -aG docker vagrant
 ```
-## Run `postgres_exporter` on Postgres host with Docker
-```bash
-docker run \
-  --net=host \
-  -e DATA_SOURCE_NAME="postgresql://postgres:postgres@localhost:5432/postgres?sslmode=disable" \
-  quay.io/prometheuscommunity/postgres-exporter
-```
 
-## Install and enable any IP connections to `postgresql` on Ubuntu (PostgreSQL 12 as example)
+## PostgreSQL
+### Install and enable any IP connections to `postgresql` on Ubuntu (PostgreSQL 12 as example)
 1. `sudo apt-get update && sudo apt-get install -y postgresql-12`
 2. Listen all connection:
     1. `sudo su`
@@ -46,7 +40,14 @@ docker run \
     5. `commit`
 6. `sudo systemctl restart postgresql`
 
-## PostgreSQL
+### Run `postgres_exporter` on Postgres host with Docker
+```bash
+docker run \
+  --net=host \
+  -e DATA_SOURCE_NAME="postgresql://postgres:postgres@localhost:5432/postgres?sslmode=disable" \
+  quay.io/prometheuscommunity/postgres-exporter
+```
+
 ### Quickly generate data
 For example, to generate 1 000 000 records in table `temp(value int)`:
 ```
