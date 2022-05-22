@@ -26,7 +26,7 @@ docker run \
   quay.io/prometheuscommunity/postgres-exporter
 ```
 
-## Install and Enable any IP connections to `postgresql` on Ubuntu (PostgreSQL 12 as example)
+## Install and enable any IP connections to `postgresql` on Ubuntu (PostgreSQL 12 as example)
 1. `sudo apt-get update && sudo apt-get install -y postgresql-12`
 2. Listen all connection:
     1. `sudo su`
@@ -45,6 +45,13 @@ docker run \
     4. `ALTER USER postgres SET password 'YOUR PASSWORD'`
     5. `commit`
 6. `sudo systemctl restart postgresql`
+
+## PostgreSQL
+### Quickly generate data
+For example, to generate 1 000 000 records in table `temp(value int)`:
+```
+insert into temp(value) select random() * 100 from generate_series(0, 1000000);
+```
 
 ## Install Windows11 on Intel based Macs
 Source is here: https://www.youtube.com/watch?v=ISlalQsrWfk&t=358s
