@@ -38,7 +38,13 @@ docker run \
     3. Add one of the following:
         1. `host    all             all             0.0.0.0/0               md5` - to auth by password
         2. `host    all             all             0.0.0.0/0               ident` - to auth by os user password
-4. `sudo systemctl restart postgresql`
+4. To update `postgres` user password:
+    1. `sudo su`
+    2. `su postgres`
+    3. `psql`
+    4. `ALTER USER postgres SET password 'YOUR PASSWORD'`
+    5. `commit`
+6. `sudo systemctl restart postgresql`
 
 ## Install Windows11 on Intel based Macs
 Source is here: https://www.youtube.com/watch?v=ISlalQsrWfk&t=358s
