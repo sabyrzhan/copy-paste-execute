@@ -1,4 +1,4 @@
-# 📝 👨‍💻 ▶️ copy-paste-execute in shell
+# 🖥 ▶️ copy-paste-execute in shell
 
 ## Install Docker on Ubuntu (run as `root`)
 ```bash
